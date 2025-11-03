@@ -1,71 +1,71 @@
 # Core Data Science
-numpy==1.23.5
-pandas==2.3.3
-scipy==1.15.3
-scikit-learn==1.7.2
+numpy==1.24.3
+pandas==1.5.3
+scipy==1.10.1
+scikit-learn==1.3.0
 
 # Machine Learning & Deep Learning
-tensorflow==2.12.0
-keras==2.12.0
+tensorflow==2.10.0
+keras==2.10.0
 
-# Financial Data & Analysis
-yfinance==0.2.66
-ta==0.9.0
+# Financial Data & Analysis  
+yfinance==0.2.18
+ta==0.10.2
 finta==1.3
-multitasking==0.0.12
+multitasking==0.0.11
 
 # Technical Analysis (TA-Lib)
-TA-Lib==0.6.7
+TA-Lib==0.4.24
 
 # Visualization
-matplotlib==3.7.5
-plotly==5.1.0
+matplotlib==3.7.1
+plotly==5.14.1
 altair==4.2.2
 
 # Web Framework & UI
 streamlit==1.22.0
-streamlit-aggrid==1.1.9
+streamlit-aggrid==0.3.4
 
 # Development & Utilities
 jupyter==1.0.0
-ipython==8.37.0
-ipykernel==7.0.1
-notebook==6.5.5
+ipython==8.12.0
+ipykernel==6.25.0
+notebook==6.5.4
 
 # Web Scraping & Data Collection
-beautifulsoup4==4.14.2
-lxml==6.0.2
-requests==2.32.5
+beautifulsoup4==4.12.2
+lxml==4.9.3
+requests==2.31.0
 
 # Additional Utilities
-pillow==10.4.0
-joblib==1.5.2
-threadpoolctl==3.6.0
+pillow==10.0.0
+joblib==1.3.2
+threadpoolctl==3.2.0
 python-decouple==3.8
-tenacity==8.5.0
+tenacity==8.2.3
 
 # Dependencies with specific versions for compatibility
 protobuf==3.20.3
-flatbuffers==25.9.23
-wrapt==1.14.2
-google-auth==2.41.1
+flatbuffers==23.5.26
+wrapt==1.14.1
+google-auth==2.22.0
 google-auth-oauthlib==1.0.0
-tensorboard==2.12.3
-tensorflow-estimator==2.12.0
-tensorflow-io-gcs-filesystem==0.31.0
+tensorboard==2.10.0
+tensorflow-estimator==2.10.0
+tensorflow-io-gcs-filesystem==0.27.0
 
 # Other essential packages
-certifi==2025.10.5
-charset-normalizer==3.4.3
-click==8.3.0
+certifi==2023.7.22
+charset-normalizer==3.2.0
+click==8.1.7
 colorama==0.4.6
-decorator==5.2.1
-idna==3.11
-Jinja2==3.1.6
-MarkupSafe==3.0.3
-packaging==23.2
-pyarrow==21.0.0
-pywin32==311
-pyzmq==27.1.0
-urllib3==2.5.0
-wcwidth==0.2.14
+decorator==5.1.1
+idna==3.4
+Jinja2==3.1.2
+MarkupSafe==2.1.3
+packaging==23.1
+pyarrow==12.0.1
+pywin32==306
+pyzmq==25.1.0
+urllib3==2.0.4
+wcwidth==0.2.6
