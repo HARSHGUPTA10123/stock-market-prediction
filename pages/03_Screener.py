@@ -139,8 +139,8 @@ with st.container():
     cc_33.metric('50 Day Average', millify(info.get('fiftyDayAverage', 0), 2))
     cc_44.metric('Recommendation', str(info.get('recommendationKey', 'N/A')).upper())
 
-# Additional error information for debugging
-if st.checkbox("Show debug info"):
-    st.subheader("Debug Information")
-    st.write(f"DataFrame shape: {df.shape if df is not None else 'No data'}")
-    st.write(f"Info keys: {list(info.keys()) if info else 'No info'}")
+# # Additional error information for debugging
+# if st.checkbox("Show debug info"):
+#     st.subheader("Debug Information")
+#     st.write(f"DataFrame shape: {df.shape if df is not None else 'No data'}")
+#     st.write(f"Info keys: {list(info.keys()) if info else 'No info'}")
