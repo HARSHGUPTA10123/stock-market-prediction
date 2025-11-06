@@ -655,7 +655,7 @@ from finta import TA
 import ta.momentum
 import ta.trend
 import sqlite3
-import talib
+import ta
 
 from millify import millify
 try:

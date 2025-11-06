@@ -655,7 +655,7 @@ import datetime as dt
 from functions import *
 import plotly.graph_objects as go
 from patterns import candlestick_patterns
-import talib
+import ta
 import numpy as np
 from yahooquery import Ticker
 
@@ -768,7 +768,7 @@ names = list(candlestick_patterns.values())
 
 for pattern_func in candlestick_patterns.keys():
     try:
-        result = getattr(talib, pattern_func)(open_, high, low, close)
+        result = getattr(ta, pattern_func)(open_, high, low, close)
         last = result[-1]
         if last > 0:
             signals.append("Bullish")
