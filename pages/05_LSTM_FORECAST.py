@@ -1,3 +1,8 @@
+
+
+# ----------------------------------------------------------------------------------------------------------------------------
+
+
 import streamlit as st
 import numpy as np
 import pandas as pd
@@ -17,22 +22,51 @@ st.set_page_config(page_title="LSTM Stock Forecast", layout="wide")
 st.title("📈 LSTM Stock Price Future Prediction")
 
 # ----------------------
-# Load Stock List
+# Load ALL NSE Stocks from CSV
 # ----------------------
 @st.cache_data
-def load_symbols():
-    return [
-        "RELIANCE.NS", "TCS.NS", "INFY.NS", "HDFCBANK.NS", "ICICIBANK.NS", "SBIN.NS",
-        "BHARTIARTL.NS", "KOTAKBANK.NS", "ITC.NS", "SUZLON.NS", "ADANIGREEN.NS",
-        "TATAMOTORS.NS", "ADANIPORTS.NS", "POWERGRID.NS", "NTPC.NS", "ONGC.NS",
-        "BAJFINANCE.NS", "HCLTECH.NS", "TATASTEEL.NS", "JSWSTEEL.NS", "WIPRO.NS",
-        "AXISBANK.NS", "SUNPHARMA.NS", "ZOMATO.NS", "VEDL.NS"
-    ]
+def load_all_nse_symbols():
+    """Load all NSE symbols from CSV file"""
+    try:
+        # Load symbols from CSV file (same as your screener app)
+        csv = pd.read_csv('symbols.csv')
+        symbols = csv['Symbol'].tolist()
+        
+        # Add .NS suffix for Yahoo Finance
+        for i in range(0, len(symbols)):
+            symbols[i] = symbols[i] + ".NS"
+        
+        st.success(f"✅ Loaded {len(symbols)} NSE stocks from symbols.csv")
+        return symbols
+        
+    except Exception as e:
+        st.error(f"Error loading symbols from CSV: {e}")
+        st.warning("Using default stock list as fallback")
+        
+        # Fallback to limited list if CSV fails
+        return [
+            "RELIANCE.NS", "TCS.NS", "INFY.NS", "HDFCBANK.NS", "ICICIBANK.NS", "SBIN.NS",
+            "BHARTIARTL.NS", "KOTAKBANK.NS", "ITC.NS", "SUZLON.NS", "ADANIGREEN.NS",
+            "TATAMOTORS.NS", "ADANIPORTS.NS", "POWERGRID.NS", "NTPC.NS", "ONGC.NS",
+            "BAJFINANCE.NS", "HCLTECH.NS", "TATASTEEL.NS", "JSWSTEEL.NS", "WIPRO.NS",
+            "AXISBANK.NS", "SUNPHARMA.NS", "ZOMATO.NS", "VEDL.NS"
+        ]
 
-symbols = load_symbols()
+# Load symbols
+symbols = load_all_nse_symbols()
 
-selected_stock = st.selectbox("Select Stock:", symbols, index=symbols.index("SUZLON.NS"))
+# Create searchable dropdown with all NSE stocks
+selected_stock = st.selectbox(
+    "Select Stock:", 
+    symbols, 
+    index=symbols.index("SUZLON.NS") if "SUZLON.NS" in symbols else 0,
+    help="Search and select from 1700+ NSE stocks"
+)
+
 start_prediction = st.button("🚀 Start Forecast", use_container_width=True)
+
+# Show symbol count info
+st.info(f"📊 **{len(symbols)} NSE stocks loaded** - Search and select any stock for prediction")
 
 # ----------------------
 # DATA FETCHING WITH YAHOOQUERY WRAPPER
@@ -91,7 +125,7 @@ if start_prediction:
         3. Try a different stock symbol
         4. The stock might be delisted or data temporarily unavailable
         
-        **Working symbols to try:**
+        **Try these popular symbols:**
         - RELIANCE.NS, TCS.NS, INFY.NS, HDFCBANK.NS
         """)
         
@@ -371,13 +405,22 @@ if start_prediction:
 else:
     st.info("👆 Select a stock and click 'Start Forecast' to begin prediction")
     
-    # Show available symbols
-    with st.expander("📋 Available Stocks"):
-        st.write("Popular NSE stocks available for analysis:")
+    # Show available symbols count
+    with st.expander("📋 Available Stocks Info"):
+        st.write(f"**Total NSE stocks loaded:** {len(symbols)}")
+        st.write("You can search and select any stock from the dropdown above")
+        
+        # Show first few symbols as examples
+        st.write("**Sample stocks:**")
         cols = 3
-        stocks_per_col = len(symbols) // cols + 1
+        stocks_per_col = 15 // cols + 1
         
         col1, col2, col3 = st.columns(3)
-        for i, symbol in enumerate(symbols):
+        for i, symbol in enumerate(symbols[:15]):  # Show first 15 as examples
             with col1 if i < stocks_per_col else col2 if i < 2*stocks_per_col else col3:
                 st.write(f"• {symbol}")
+
+
+
+
+

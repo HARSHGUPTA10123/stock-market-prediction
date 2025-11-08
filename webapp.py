@@ -152,7 +152,7 @@ def get_stock_info(ticker):
 
 # Streamlit page config
 st.set_page_config(
-    page_title="StockForecast", 
+    page_title="MarketEdge by Harsh", 
     layout="wide", 
     page_icon="💸",
     initial_sidebar_state="expanded"
@@ -325,7 +325,7 @@ st.markdown("""
 # Header Section - Properly Centered with Original Styling
 st.markdown("""
     <div style="text-align: center;">
-        <h1 class="main-header">📈 StockForecast</h1>
+        <h1 class="main-header">📈 MarketEdge by Harsh</h1>
         <h3 style="color: #FFFFFF; margin-bottom: 2rem;">Your All-in-One Financial Platform for Retail Investors</h3>
     </div>
 """, unsafe_allow_html=True)
@@ -674,6 +674,7 @@ st.markdown("""
 st.markdown("---")
 st.markdown("""
 <div style="text-align: center; color: #666; padding: 1rem;">
-    <p>© 2024 StockForecast. All rights reserved. | Data Source: Yahoo Finance via YahooQuery | NSE: National Stock Exchange of India</p>
+    <p>© 2025 Harsh Gupta — Smart Stock Forecasting | Data Powered by Yahoo Finance (YahooQuery API)
+ | NSE: National Stock Exchange of India</p>
 </div>
 """, unsafe_allow_html=True)
